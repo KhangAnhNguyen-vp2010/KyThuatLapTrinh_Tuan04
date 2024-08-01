@@ -11,12 +11,23 @@ double Sum_1(int n)
 	else return (double) 1/n*(n+1)*(n+2) + Sum_1(n-1);
 }
 
+int Sum_2(int n)
+{
+	if (n==1)
+	{
+		return 1;
+	}
+	else return powf(n,2)+Sum_2(n-1);
+}
+
 int main()
 {
 	int n;
 	printf("Nhap n:");
 	scanf("%d", &n);
 	printf("Ket qua cua S(n)=1/1.2.3 + 1/2.3.4 + 1/3.4.5 + ... + 1/n.(n+1).(n+2) la: %.2f", Sum_1(n));
+	printf("\n------------------------------------\n");
+	printf("Ket qua cua S(n)= 1^2 + 2^2 + ... + n^2 la: %d", Sum_2(n));
 	getch();
 	return 0;
 }
