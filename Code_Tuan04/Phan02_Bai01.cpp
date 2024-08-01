@@ -37,6 +37,15 @@ double sum_4(int n)
 	else return (double) 1/(2*n+1) + sum_4(n-1); 
 }
 
+int sum_5(int n)
+{
+	if (n==1)
+	{
+		return 2;
+	}
+	else return n*(n+1) + sum_5(n-1);
+}
+
 int main()
 {
 	int n;
@@ -49,6 +58,8 @@ int main()
 	printf("Ket Qua cua S(n)= sqrt(5 + sqrt(5 + ...  + sqrt(5 + sqrt(5)))) la: %.2f", sum_3(n));
 	printf("\n----------------------------------\n");
 	printf("Ket Qua cua S(n)= 1 + 1/3 + 1/5 + ... + 1/2n+1 la: %.2f", sum_4(n));
+	printf("\n----------------------------------\n");
+	printf("Ket Qua cua S(n)= 1.2 + 2.3 + 3.4 + 4.5 + ... + n.(n+1) la: %d", sum_5(n));
 	getch();
 	return 0;
 }
