@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <conio.h>
-
+#include <math.h>
 int sum(int n)
 {
 	if (n==1)
@@ -19,6 +19,15 @@ float sum_2(int n)
 	else return (float) n / (n + 1) + sum_2(n-1);
 }
 
+double sum_3(int n)
+{
+	if (n==1)
+	{
+		return sqrtf(5);
+	}
+	else return sqrtf(5 + sum_3(n-1));
+}
+
 int main()
 {
 	int n;
@@ -27,6 +36,8 @@ int main()
 	printf("Ket Qua cua S(n)=1+2+3+...+n la: %d", sum(n));
 	printf("\n----------------------------------\n");
 	printf("Ket Qua cua S(n)=1/2 + 2/3 + ... + n/n+1 la: %.2f", sum_2(3));
+	printf("\n----------------------------------\n");
+	printf("Ket Qua cua S(n)= sqrt(5 + sqrt(5 + ...  + sqrt(5 + sqrt(5)))) la: %.2f", sum_3(n));
 	getch();
 	return 0;
 }
