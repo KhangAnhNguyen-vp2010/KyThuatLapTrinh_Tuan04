@@ -46,6 +46,24 @@ int sum_5(int n)
 	else return n*(n+1) + sum_5(n-1);
 }
 
+int giaiThua(int a)
+{
+	if (a==1)
+	{
+		return 1;
+	}
+	else return a*giaiThua(a-1);
+}
+
+double sum_6(int n)
+{
+	if (n==1)
+	{
+		return giaiThua(2)/2+sqrtf(3);
+	}
+	else return (double) ( n*giaiThua(n+1)/(n+1) + sqrtf(n+2) ) + sum_6(n-1);
+}
+
 int main()
 {
 	int n;
@@ -60,6 +78,8 @@ int main()
 	printf("Ket Qua cua S(n)= 1 + 1/3 + 1/5 + ... + 1/2n+1 la: %.2f", sum_4(n));
 	printf("\n----------------------------------\n");
 	printf("Ket Qua cua S(n)= 1.2 + 2.3 + 3.4 + 4.5 + ... + n.(n+1) la: %d", sum_5(n));
+	printf("\n----------------------------------\n");
+	printf("Ket Qua cua S(n)= 1.2!/2+sqrt(3) + 2.3!/3+sqrt(4) + 3.4!/4+sqrt(5) + ... + n.(n+1)!/(n+1)+sqrt(n+2) la: %.2f", sum_6(n));
 	getch();
 	return 0;
 }
