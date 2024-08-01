@@ -38,6 +38,24 @@ int Sum_3(int n)
 	else return tinhTong(n) + Sum_3(n-1);
 }
 
+int giaiThua(int a)
+{
+	if (a==1)
+	{
+		return 1;
+	}
+	else return a*giaiThua(a-1);
+}
+
+double Sum_4(int n)
+{
+	if (n==1)
+	{
+		return (double) -(1+2)/giaiThua(2);
+	}
+	else return (double) ( powf(-1,n)*(2*n-1)+2*n ) / giaiThua(2*n) + Sum_4(n-1);
+}
+
 int main()
 {
 	int n;
@@ -48,6 +66,8 @@ int main()
 	printf("Ket qua cua S(n)= 1^2 + 2^2 + ... + n^2 la: %d", Sum_2(n));
 	printf("\n------------------------------------\n");
 	printf("Ket qua cua S(n)=1+(1+2) + (1+2+3) + ... + (1+2+3+...+n) la: %d", Sum_3(n));
+	printf("\n------------------------------------\n");
+	printf("Ket qua cua S(n)= - (1+2/2!) + (3+4/2!) - (5+6/6!) + ... + (-1)^n * (2n-1)+(2n)/(2n)! la: %.2f", Sum_4(n));
 	getch();
 	return 0;
 }
